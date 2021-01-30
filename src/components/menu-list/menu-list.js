@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import MenuListItem from '../menu-list-item/menu-list-item';
 import WithRestService from '../hoc/with-rest-service';
 import {connect} from 'react-redux';
+import {menuLoaded} from '../../actions';
 
 class   MenuList extends Component {
     componentDidMount() {
-        const   {RestService} = this.props;
+        const   {RestService, menuLoaded} = this.props;
 
         RestService.getMenuItems()
-            .then(res => console.log(res))
+            .then(res => menuLoaded(res))
             .catch(error => console.log(error));
     }
 
@@ -33,4 +34,6 @@ const   mapStateToProps = (state) => {
     };
 };
 
-export default WithRestService()(connect(mapStateToProps)(MenuList));
+const   mapDispatchToProps = {menuLoaded};
+
+export default WithRestService()(connect(mapStateToProps, mapDispatchToProps)(MenuList));

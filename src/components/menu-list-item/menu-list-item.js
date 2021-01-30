@@ -1,7 +1,7 @@
 import React from 'react';
 
 const   MenuListItem = ({menuItem}) => {
-    const   {name, author, genre, writer, quantity} = menuItem;
+    const   {name, writer, genre, price, quantity} = menuItem;
 
     return (
         <>
@@ -9,7 +9,7 @@ const   MenuListItem = ({menuItem}) => {
                 <div>Название: {name}</div>
                 <div>Автор: {writer}</div>
                 <div>Жанр: {genre}</div>
-                <div>Цена: {author}руб.</div>
+                <div>Цена: {price}руб.</div>
                 <div>Осталось: {quantity}шт.</div>
             </li>
         </>
