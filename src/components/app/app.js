@@ -1,9 +1,19 @@
 import React from 'react';
-import WithRestService from '../hoc/with-rest-service';
+import AppHeader from '../app-header/app-header';
+import { Route, Switch } from 'react-router-dom';
+import { ShopPage, BinPage } from '../pages';
 
-const App = ({RestService}) => {
-    console.log(RestService.getMenuItems());
-    return <h2>Hello, world!</h2>;
-}
 
-export default WithRestService()(App);
+const App = () => {
+    return (
+    <div>
+        <AppHeader />
+        <Switch>
+            <Route path='/' exact component={ShopPage}/>
+            <Route path='/bin'  component={BinPage}/>
+        </Switch>
+    </div>
+    );
+};
+
+export default App;
