@@ -1,15 +1,19 @@
 import React from 'react';
 
-const   MenuListItem = () => (
-    <>
-        <li>
-            <div>Название: Граф Монте-Кристо</div>
-            <div>Автор: Александр Дюма</div>
-            <div>Жанр: Роман, Любовный роман, Исторический</div>
-            <div>Цена: 1000руб.</div>
-            <div>Осталось: 1шт.</div>
-        </li>
-    </>
-);
+const   MenuListItem = ({menuItem}) => {
+    const   {name, author, genre, writer, quantity} = menuItem;
+
+    return (
+        <>
+            <li>
+                <div>Название: {name}</div>
+                <div>Автор: {writer}</div>
+                <div>Жанр: {genre}</div>
+                <div>Цена: {author}руб.</div>
+                <div>Осталось: {quantity}шт.</div>
+            </li>
+        </>
+    );
+};
 
 export default MenuListItem;

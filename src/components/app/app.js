@@ -6,13 +6,13 @@ import { ShopPage, BinPage } from '../pages';
 
 const App = () => {
     return (
-    <div>
-        <AppHeader />
-        <Switch>
-            <Route path='/' exact component={ShopPage}/>
-            <Route path='/bin'  component={BinPage}/>
-        </Switch>
-    </div>
+        <div>
+            <AppHeader />
+            <Switch>
+                <Route path='/' exact component={ShopPage}/>
+                <Route path='/bin'  component={BinPage}/>
+            </Switch>
+        </div>
     );
 };
 
