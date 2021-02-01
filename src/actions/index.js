@@ -14,9 +14,23 @@ const   menuError = () => {
         type: 'MENU_ERROR'
     };
 };
+const   addToBin = (id) => {
+    return {
+        type: 'ITEM_ADD_TO_BIN',
+        payload: id
+    };
+};
+const   deleteFromBin = (id) => {
+    return {
+        type: 'ITEM_REMOVE_FROM_BIN',
+        payload: id
+    };
+};
 
 export {
     menuLoaded,
     menuRequested,
-    menuError
+    menuError,
+    addToBin,
+    deleteFromBin
 };

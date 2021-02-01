@@ -1,31 +1,38 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {deleteFromBin} from '../../actions';
 
-const   BinList = (items, onDelete) => {
+const   BinList = ({items, deleteFromBin}) => {
     return (
         <>
             <div>Корзина:</div>
-            {
-                items.map(item => {
-                    const   {name, writer, genre, price, quantity, id} = item;
+            <div>
+                {
+                    items.map(item => {
+                        const   {name, writer, genre, price, quantity, id} = item;
 
-                    return (
-                        <div>
-                            <div
-                                onClick={() => onDelete(id)}>
-                                &times;</div>
+                        return (
                             <div key={id}>
-                                <div>Название: {name}</div>
-                                <div>Автор: {writer}</div>
-                                <div>Жанр: {genre}</div>
-                                <div>Цена: {price}руб.</div>
-                                <div>Осталось: {quantity}шт.</div>
+                                <div
+                                    onClick={() => deleteFromBin(id)}>
+                                    &times;</div>
+                                <div>
+                                    <div>Название: {name}</div>
+                                    <div>Автор: {writer}</div>
+                                    <div>Жанр: {genre}</div>
+                                    <div>Цена: {price}руб.</div>
+                                    <div>Осталось: {quantity}шт.</div>
+                                </div>
                             </div>
-                        </div>
-                    );
-                })
-            }
+                        );
+                    })
+                }
+            </div>
         </>
     );
 };
 
-export default BinList;
+const   mapStateToProps = (items) => items;
+const   mapDispatchToProps = {deleteFromBin};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BinList);

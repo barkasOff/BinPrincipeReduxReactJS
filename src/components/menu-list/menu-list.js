@@ -4,7 +4,7 @@ import WithRestService from '../hoc/with-rest-service';
 import Spinner from '../spinner/spinner';
 import Error from '../error/error';
 import {connect} from 'react-redux';
-import {menuLoaded, menuRequested, menuError} from '../../actions';
+import {menuLoaded, menuRequested, menuError, addToBin} from '../../actions';
 
 class   MenuList extends Component {
     componentDidMount() {
@@ -17,7 +17,7 @@ class   MenuList extends Component {
     }
 
     render() {
-        const {menuItems, loading, error} = this.props;
+        const {menuItems, loading, error, addToBin} = this.props;
 
         if (error) {
             return <Error />
@@ -29,7 +29,10 @@ class   MenuList extends Component {
             <ul>
                 {
                     menuItems.map(menuItem => {
-                        return <MenuListItem key={menuItem.id} menuItem={menuItem} />;
+                        return <MenuListItem
+                                    key={menuItem.id}
+                                    menuItem={menuItem}
+                                    onAdd={() => addToBin(menuItem.id)} />;
                     })
                 }
             </ul>
@@ -45,6 +48,6 @@ const   mapStateToProps = (state) => {
     };
 };
 
-const   mapDispatchToProps = {menuLoaded, menuRequested, menuError};
+const   mapDispatchToProps = {menuLoaded, menuRequested, menuError, addToBin};
 
 export default WithRestService()(connect(mapStateToProps, mapDispatchToProps)(MenuList));

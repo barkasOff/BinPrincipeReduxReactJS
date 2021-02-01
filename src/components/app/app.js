@@ -10,7 +10,7 @@ const App = () => {
             <AppHeader />
             <Switch>
                 <Route path='/' exact component={ShopPage}/>
-                <Route path='/bin'  component={BinPage}/>
+                <Route path='/bin' component={BinPage}/>
             </Switch>
         </div>
     );
