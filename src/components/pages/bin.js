@@ -1,5 +1,6 @@
 import React from 'react';
+import BinList from '../bin-list/bin-list';
 
-const   BinPage = () => <h2>Bin</h2>;
+const   BinPage = () => <BinList />;
 
 export default BinPage;
