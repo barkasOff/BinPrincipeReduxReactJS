@@ -5,6 +5,7 @@ import Spinner from '../spinner/spinner';
 import Error from '../error/error';
 import {connect} from 'react-redux';
 import {menuLoaded, menuRequested, menuError, addToBin} from '../../actions';
+import './menu-list.scss';
 
 class   MenuList extends Component {
     componentDidMount() {
@@ -26,7 +27,7 @@ class   MenuList extends Component {
             return <Spinner />
         }
         return (
-            <ul>
+            <div className="menu__list">
                 {
                     menuItems.map(menuItem => {
                         return <MenuListItem
@@ -35,7 +36,7 @@ class   MenuList extends Component {
                                     onAdd={() => addToBin(menuItem.id)} />;
                     })
                 }
-            </ul>
+            </div>
         );
     }
 };

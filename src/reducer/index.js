@@ -37,7 +37,7 @@ const   reducer = (state = initialState, action) => {
             };
         case 'ITEM_REMOVE_FROM_BIN':
             const   idx = action.payload,
-                    itemIndex = state.menu.findIndex(el => el.id === idx);
+                    itemIndex = state.items.findIndex(el => el.id === idx);
 
             return {
                 ...state,

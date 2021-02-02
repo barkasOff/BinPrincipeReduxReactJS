@@ -1,0 +1,37 @@
+.note {
+    padding: 2px 12px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    &-fst {
+        border-top: 1px solid #000;
+    }
+    span {
+        font-weight: bold;
+    }
+}
+
+.menu {
+    &__item {
+        margin-top: 10px;
+        padding: 10px 0;
+        border: 1px solid #000;
+        border-radius: 5px;
+        background-color: rgb(88, 145, 192);
+        box-shadow: 0 4px 30px rgba(0,0,0,.25);
+    }
+    &__btn {
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        outline: none;
+        background-color: rgb(147, 206, 255);
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px;
+        transition: all .3s;
+        transform: translateY(calc(50% - 8px));
+        &:hover {
+            background-color: rgb(126, 197, 255);
+        }
+    }
+}

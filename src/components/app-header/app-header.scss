@@ -1,0 +1,13 @@
+.header {
+    &__item {
+        font-size: 20px;
+        margin: 0 5px;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        transition: .3s all;
+        &:hover {
+            color: rgb(68, 68, 68);
+        }
+    }
+}
